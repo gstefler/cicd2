@@ -1,5 +1,4 @@
 from flask import Flask
-import math
 
 app = Flask(__name__)
 
@@ -8,10 +7,12 @@ app = Flask(__name__)
 def health():
     return "OK"
 
+# return the user agent
+
 
 @app.route("/")
-def hello_world():
-    return math.pi
+def hello():
+    return f"Hello, World! Your user agent is {Flask.request.headers.get('User-Agent')}"
 
 
 if __name__ == '__main__':
