@@ -1,4 +1,5 @@
 from flask import Flask
+from flask import request
 
 app = Flask(__name__)
 
@@ -12,7 +13,7 @@ def health():
 
 @app.route("/")
 def hello():
-    return f"Hello, World! Your user agent is {Flask.request.headers.get('User-Agent')}"
+    return f"Hello, World! Your user agent is {request.headers.get('User-Agent')}"
 
 
 if __name__ == '__main__':
